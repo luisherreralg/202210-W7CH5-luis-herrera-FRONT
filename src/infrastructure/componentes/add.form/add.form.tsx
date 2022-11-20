@@ -40,64 +40,84 @@ export function AddForm() {
 
     return (
         <>
-            <h2>{title}</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        type="text"
-                        name="name"
-                        aria-label="Name"
-                        placeholder="Nombre del robot"
-                        value={formState.name}
-                        onInput={handleInput}
-                        required
-                    />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        name="image"
-                        aria-label="Image"
-                        placeholder="Imagen del robot"
-                        value={formState.image}
-                        onInput={handleInput}
-                    />
-                </div>
-                <div>
-                    <input
-                        type="number"
-                        name="speed"
-                        aria-label="Speed"
-                        placeholder="Velocidad del robot"
-                        value={formState.speed}
-                        onInput={handleInput}
-                        required
-                    />
-                </div>
-                <div>
-                    <input
-                        type="number"
-                        name="endurance"
-                        aria-label="Endurance"
-                        placeholder="Resistencia del robot"
-                        value={formState.endurance}
-                        onInput={handleInput}
-                        required
-                    />
-                </div>
-                <div>
-                    <input
-                        type="date"
-                        name="creationDate"
-                        aria-label="Creation Date"
-                        placeholder="Fecha de creación del robot"
-                        value={formState.creationDate}
-                        onInput={handleInput}
-                        required
-                    />
-                </div>
-                <button type="submit">Guardar</button>
-            </form>
+            <div className="flex flex-col bg-gray-800 w-6/12 p-5 items-center my-28">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                    <h2 className="text-2xl">{title}</h2>
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="name">Nombre del robot:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            aria-label="Name"
+                            value={formState.name}
+                            onInput={handleInput}
+                            required
+                            className="w-72 bg-slate-400 rounded-md text-slate-900"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="image">
+                            Imagen del robot{'(URL)'}:
+                        </label>
+                        <input
+                            type="text"
+                            name="image"
+                            aria-label="Image"
+                            placeholder="Imagen del robot"
+                            value={formState.image}
+                            onInput={handleInput}
+                            className="w-72 bg-slate-400 rounded-md text-slate-900"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="speed">Velocidad del robot:</label>
+                        <input
+                            type="number"
+                            name="speed"
+                            aria-label="Speed"
+                            value={formState.speed}
+                            onInput={handleInput}
+                            required
+                            className="w-72 bg-slate-400 rounded-md text-slate-900"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="endurance">
+                            Resistencia del robot:
+                        </label>
+                        <input
+                            type="number"
+                            name="endurance"
+                            aria-label="Endurance"
+                            value={formState.endurance}
+                            onInput={handleInput}
+                            required
+                            className="w-72 bg-slate-400 rounded-md text-slate-900"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="creationDate">
+                            {' '}
+                            Fecha de creación:
+                        </label>
+                        <input
+                            type="date"
+                            name="creationDate"
+                            aria-label="Creation Date"
+                            value={formState.creationDate}
+                            onInput={handleInput}
+                            required
+                            className="w-72 bg-slate-400 rounded-md text-slate-900"
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="bg-zinc-700 hover:bg-zinc-900 rounded-lg"
+                    >
+                        Guardar
+                    </button>
+                </form>
+            </div>
         </>
     );
 }

@@ -9,7 +9,7 @@ export function RobotList() {
         handleLoad();
     }, [handleLoad]);
     return (
-        <div>
+        <div className="flex flex-wrap gap-14 m-10">
             {robots.map((robot) => (
                 <ul key={robot._id}>
                     <RobotListItem robot={robot}></RobotListItem>

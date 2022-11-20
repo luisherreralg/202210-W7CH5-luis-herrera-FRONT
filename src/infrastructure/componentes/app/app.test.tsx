@@ -29,9 +29,7 @@ describe('Given App component', () => {
             });
         });
         test('Then it should display the title', () => {
-            const element = screen.getByText(
-                /Estoy usando la plantilla de LUIS/i
-            );
+            const element = screen.getByText(/Robots/i);
             expect(element).toBeInTheDocument();
         });
     });

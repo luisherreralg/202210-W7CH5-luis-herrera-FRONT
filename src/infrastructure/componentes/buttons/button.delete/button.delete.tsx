@@ -10,5 +10,12 @@ export function ButtonDelete({ id }: { id: string }) {
         handleLoad();
     };
 
-    return <button onClick={handleDeleteClick}>BORRAR 🗑️</button>;
+    return (
+        <button
+            className="bg-zinc-700 hover:bg-zinc-900 rounded-lg"
+            onClick={handleDeleteClick}
+        >
+            BORRAR 🗑️
+        </button>
+    );
 }
