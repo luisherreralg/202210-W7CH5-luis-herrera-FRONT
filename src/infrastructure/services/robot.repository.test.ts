@@ -38,10 +38,9 @@ describe('Given RobotRepository Service', () => {
                 statusText: 'error',
             });
 
-            const expectedResult = await service.getAll();
             const result = new Error('Error 400: error');
             result.name = 'HTTPError';
-            expect(expectedResult).toBe(result.toString());
+            await expect(async () => await service.getAll()).rejects.toThrow();
         });
 
         test(`Then if I use service.create()
@@ -73,10 +72,11 @@ describe('Given RobotRepository Service', () => {
                 statusText: 'error',
             });
 
-            const expectedResult = await service.create({});
             const result = new Error('Error 400: error');
             result.name = 'HTTPError';
-            expect(expectedResult).toBe(result.toString());
+            await expect(
+                async () => await service.create({})
+            ).rejects.toThrow();
         });
 
         test('Then if I use service.delete() it should return an undefined', async () => {
@@ -108,10 +108,11 @@ describe('Given RobotRepository Service', () => {
                 statusText: 'error',
             });
 
-            const expectedResult = await service.delete('');
             const result = new Error('Error 400: error');
             result.name = 'HTTPError';
-            expect(expectedResult).toBe(result.toString());
+            await expect(async () => {
+                await service.delete('');
+            }).rejects.toThrow();
         });
 
         test('Then if I use service.update it should return', async () => {
@@ -136,10 +137,11 @@ describe('Given RobotRepository Service', () => {
                 statusText: 'error',
             });
 
-            const expectedResult = await service.update({});
             const result = new Error('Error 400: error');
             result.name = 'HTTPError';
-            expect(expectedResult).toBe(result.toString());
+            await expect(async () => {
+                await service.update({});
+            }).rejects.toThrow();
         });
     });
 });

@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react';
-import { MemoryRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { appStore } from '../../store/store';
 import { App } from './app';
 
 interface CryptoPlus extends Crypto {
@@ -21,9 +22,9 @@ describe('Given App component', () => {
             // eslint-disable-next-line testing-library/no-unnecessary-act
             await act(async () => {
                 render(
-                    <Router>
+                    <Provider store={appStore}>
                         <App />
-                    </Router>
+                    </Provider>
                 );
             });
         });
