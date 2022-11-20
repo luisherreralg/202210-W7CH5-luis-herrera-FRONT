@@ -6,6 +6,7 @@ describe('Given the robotReducer component', () => {
     const robotMock: Robot = {
         _id: '1',
         name: 'name',
+        image: 'image',
         speed: 1,
         endurance: 1,
         creationDate: '2021-01-01',

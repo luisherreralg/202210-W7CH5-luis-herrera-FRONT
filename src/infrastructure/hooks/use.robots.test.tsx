@@ -18,6 +18,7 @@ describe('Given the custom hook useTasks', () => {
     beforeEach(() => {
         mockProtoRobot = {
             name: 'test',
+            image: 'test',
             speed: 0,
             endurance: 0,
             creationDate: '0',
@@ -29,6 +30,7 @@ describe('Given the custom hook useTasks', () => {
         };
         mockAddedRobot = {
             _id: '2',
+            image: 'image',
             name: 'Added robot',
             speed: 0,
             endurance: 0,
@@ -38,6 +40,7 @@ describe('Given the custom hook useTasks', () => {
         mockUpdatedRobot = {
             _id: '2',
             name: 'Updated robot',
+            image: 'image',
             speed: 0,
             endurance: 0,
             creationDate: '0',
