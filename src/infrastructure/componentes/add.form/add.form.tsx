@@ -30,9 +30,12 @@ export function AddForm() {
         ev.preventDefault();
         const newRobot: ProtoRobot = { ...formState };
         handleAdd(newRobot);
-        handleLoad();
         setFormState(initialState);
-        return 'Clicked button';
+        handleLoad();
+
+        // TODO: PREGUNTAR ESTO EN CLASE
+        // Sin el segundo handleload no carga la info
+        handleLoad();
     };
 
     return (
