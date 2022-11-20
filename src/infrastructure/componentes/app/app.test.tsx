@@ -28,7 +28,7 @@ describe('Given App component', () => {
             });
         });
         test('Then it should display the title', () => {
-            const title = new RegExp('App', 'i');
+            const title = new RegExp('Estoy usando la plantilla de LUIS', 'i');
             const element = screen.getByText(title);
             expect(element).toBeInTheDocument();
         });
