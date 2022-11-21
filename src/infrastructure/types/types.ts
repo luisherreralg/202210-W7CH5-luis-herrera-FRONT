@@ -19,3 +19,7 @@ export type ProtoRobot = {
     endurance: number;
     creationDate: string;
 };
+
+export type Token = {
+    token: string;
+};
