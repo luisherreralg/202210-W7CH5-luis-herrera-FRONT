@@ -2,6 +2,7 @@ import { act, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { appStore } from '../../store/store';
 import { App } from './app';
+import { MemoryRouter as Router } from 'react-router-dom';
 
 interface CryptoPlus extends Crypto {
     randomBytes: (arr: number) => void;
@@ -22,14 +23,16 @@ describe('Given App component', () => {
             // eslint-disable-next-line testing-library/no-unnecessary-act
             await act(async () => {
                 render(
-                    <Provider store={appStore}>
-                        <App />
-                    </Provider>
+                    <Router>
+                        <Provider store={appStore}>
+                            <App />
+                        </Provider>
+                    </Router>
                 );
             });
         });
-        test('Then it should display the title', () => {
-            const element = screen.getByText(/Robots/i);
+        test('Then it should display the welcome msg', () => {
+            const element = screen.getByText(/Welcome!/i);
             expect(element).toBeInTheDocument();
         });
     });

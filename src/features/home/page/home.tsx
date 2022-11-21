@@ -7,7 +7,7 @@ function Home() {
                 className="h-screen flex flex-col
             items-center justify-center"
             >
-                <h3 className="text-6xl m-32">Wellcome!</h3>
+                <h3 className="text-6xl m-32">Welcome!</h3>
                 <h4 className="p-10">Do you want to login or register?</h4>
                 <div className="flex flex-col gap-5">
                     <Link to="/login">
