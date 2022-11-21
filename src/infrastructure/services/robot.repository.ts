@@ -15,7 +15,7 @@ export class RobotRepository implements Repository<Robot> {
     }
 
     getAll(): Promise<Array<Robot>> {
-        return fetch(this.url).then((response) => {
+        return fetch(this.url, {}).then((response) => {
             if (response.ok) return response.json();
             throw this.createError(response);
         });
@@ -27,6 +27,7 @@ export class RobotRepository implements Repository<Robot> {
             body: JSON.stringify(robot),
             headers: {
                 'content-type': 'application/json',
+                Authentication: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             if (response.ok) return response.json();
@@ -37,6 +38,9 @@ export class RobotRepository implements Repository<Robot> {
     delete(id: string): Promise<void> {
         return fetch(`${this.url}/${id}`, {
             method: 'DELETE',
+            headers: {
+                Authentication: `Bearer ${localStorage.getItem('token')}`,
+            },
         }).then((response) => {
             if (!response.ok) throw this.createError(response);
         });
@@ -48,6 +52,7 @@ export class RobotRepository implements Repository<Robot> {
             body: JSON.stringify(partialRobot),
             headers: {
                 'content-type': 'application/json',
+                Authentication: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             if (response.ok) return response.json();
