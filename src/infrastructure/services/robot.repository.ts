@@ -15,7 +15,12 @@ export class RobotRepository implements Repository<Robot> {
     }
 
     getAll(): Promise<Array<Robot>> {
-        return fetch(this.url, {}).then((response) => {
+        return fetch(this.url, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        }).then((response) => {
             if (response.ok) return response.json();
             throw this.createError(response);
         });
