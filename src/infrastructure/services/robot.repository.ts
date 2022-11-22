@@ -32,7 +32,7 @@ export class RobotRepository implements Repository<Robot> {
             body: JSON.stringify(robot),
             headers: {
                 'content-type': 'application/json',
-                Authentication: `Bearer ${localStorage.getItem('token')}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             if (response.ok) return response.json();
@@ -44,7 +44,7 @@ export class RobotRepository implements Repository<Robot> {
         return fetch(`${this.url}/${id}`, {
             method: 'DELETE',
             headers: {
-                Authentication: `Bearer ${localStorage.getItem('token')}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             if (!response.ok) throw this.createError(response);
@@ -57,7 +57,7 @@ export class RobotRepository implements Repository<Robot> {
             body: JSON.stringify(partialRobot),
             headers: {
                 'content-type': 'application/json',
-                Authentication: `Bearer ${localStorage.getItem('token')}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             if (response.ok) return response.json();
