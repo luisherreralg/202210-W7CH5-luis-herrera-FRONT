@@ -15,9 +15,11 @@ function Home() {
                             LOGIN
                         </button>
                     </Link>
-                    <button className="bg-gray-500 w-56 h-12 rounded-lg  hover:bg-zinc-900">
-                        REGISTER
-                    </button>
+                    <Link to="/register">
+                        <button className="bg-gray-500 w-56 h-12 rounded-lg  hover:bg-zinc-900">
+                            REGISTER
+                        </button>
+                    </Link>
                 </div>
             </div>
         </>
